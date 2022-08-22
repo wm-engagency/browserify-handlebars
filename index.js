@@ -1,10 +1,10 @@
-var handlebars = require('handlebars/dist/cjs/handlebars.runtime');
+var handlebars = require('handlebars');
 var through = require('through');
 
 var filenamePattern = /\.(html|handlebars|hbs)$/;
 
 var wrap = function (template) {
-  return 'var templater = require("handlebars").template;' +
+  return 'var templater = require("handlebars.runtime").template;' +
          'module.exports = templater(' + template + ');'
 }
 
