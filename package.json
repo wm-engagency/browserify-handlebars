@@ -25,9 +25,9 @@
     "through": "~2.3.4"
   },
   "devDependencies": {
-    "handlebars": "^4.0.0"
+    "handlebars": "^3.0.3"
   },
   "peerDependencies": {
-    "handlebars": "^4.0.0"
+    "handlebars": "^3.0.3"
   }
 }
