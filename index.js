@@ -1,9 +1,10 @@
 var handlebars = require('handlebars');
 var through = require('through');
 
+var filenamePattern = /\.(html|handlebars|hbs)$/;
+
 var wrap = function (template) {
-  var templated = handlebars.precompile(template);
-  
+      var templated = handlebars.precompile(template);
   return 'var templater = handlebars["default"].template;' +
          'module.exports = templater(' + templated + ');'
 }
