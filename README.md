@@ -54,7 +54,7 @@ browserify(e, {
     })
 ```
 
-If the handlebars templates are in a nested directory, you will need to pass the root directory path for your project (or any path information that will lead to `/node_modules/**/handlebars.runtime`). In this example, where the `gulpfile` is in the same directory as the required `node_modules` directory (both are nested in a directory at the project root) but the handlebars templates are deeply nested in a different directory at the project root, the `__dirname` is being passed:
+If the handlebars templates are in a nested directory, you will need to pass the root directory path for your project (or any path information that will lead to `/node_modules/**/handlebars.runtime`). In this example, where the `gulpfile` is in the same directory as the required `node_modules` directory (both are nested in a directory at the project root) but the handlebars templates are deeply nested in a different directory at the project root, the `__dirname` is being passed, which will provide `browserify-handlebars` with the correct path to the `node_modules` directory where handlebars is located (`__dirname` provides the full path information to the current directory it is called from):
 
 ```javascript
 browserify(e, {

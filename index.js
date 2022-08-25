@@ -4,7 +4,6 @@ var through = require('through');
 var filenamePattern = /\.(html|handlebars|hbs)$/;
 
 var wrap = function (templated, dir = '') {
-  console.log(dir);
   var directory = dir?.dir !== undefined ? dir.dir.toString() : '';
   return 'var templater = require("' + directory + '/node_modules/handlebars/dist/cjs/handlebars.runtime")["default"].template; module.exports = templater(' + templated +');'
 }
