@@ -40,5 +40,27 @@ That's all!
 
 This transform module packages the handlebars templates with the handlebars runtime, which is smaller than the complete handlebars library. This is good, because it means smaller bundle files for you.
 
+## Usage with Browserify and Gulp
 
+Here are a couple of examples for how to use this transform with Gulp.
+
+If the handlebars templates are in the same directory as the `gulpfile`, you should be able to just pass `browserifyHandlebars` as a transform for browserify:
+
+```javascript
+browserify(e, {
+      standalone: 'noscope',
+      debug: true,
+      transform: [browserifyHandlebars]
+    })
+```
+
+If the handlebars templates are in a nested directory, you will need to pass the root directory path for your project (or any path information that will lead to `/node_modules/**/handlebars.runtime`). In this example, where the `gulpfile` is in the same directory as the required `node_modules` directory (both are nested in a directory at the project root) but the handlebars templates are deeply nested in a different directory at the project root, the `__dirname` is being passed:
+
+```javascript
+browserify(e, {
+      standalone: 'noscope',
+      debug: true,
+      transform: [[browserifyHandlebars, {dir: path.resolve(__dirname)}]]
+    })
+```
 
